@@ -59,13 +59,13 @@ def incluir_novo_livro():
     
     return jsonify(livros), 201
 
-# Ecluir um livro por id
+# Excluir um livro por id
 @app.route('/livros/<int:id>',methods=['DELETE'])
 def excluir_livros(id):
     for indice, livro in enumerate(livros):
         if livro.get('id') == id:
             del livros[indice]
-            return jsonify({"message": "Livro deletado com sucesso", "livros": livros}), 200
+            return jsonify({"message": "Livro excluído com sucesso", "livros": livros}), 200
     else:
         return jsonify({"error": "Livro não encontrado", "livros": livros}), 404
     
